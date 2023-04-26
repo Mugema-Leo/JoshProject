@@ -9,6 +9,7 @@ public class Physician implements User {
 
 	@Override
 	public void register(String email, String password, String name, int age, String gender) {
+		
 		if (password.length() >= 7 && password.length() <= 8) {
 			physicians.put(email, password);
 			System.out.println("Physician registered successfully!");

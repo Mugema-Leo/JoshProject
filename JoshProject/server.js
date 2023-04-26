@@ -45,6 +45,93 @@ app.get("/users", (req, res) => {
       });
   });
 
+  app.post('/login', (req, res) => {
+   
+  const data = req.body;
+  const jsonData = JSON.stringify(data);
+
+    request.post(
+      {
+        url: 'http://localhost:8080/Ehospital/MedicalServlet',
+        form: jsonData,
+      },
+      (error, response, body) => {
+        if (error) {
+          // handle any errors
+          console.error(error);
+        } else {
+          // send the response from the Java Tomcat server back to the client
+          res.send(body);
+        }
+      }
+    );
+  });
+
+  app.post('/loginPharmacist', (req, res) => {
+   
+    const data = req.body;
+    const jsonData = JSON.stringify(data);
+  
+      request.post(
+        {
+          url: 'http://localhost:8080/Ehospital/MedicalServlet',
+          form: jsonData,
+        },
+        (error, response, body) => {
+          if (error) {
+            // handle any errors
+            console.error(error);
+          } else {
+            // send the response from the Java Tomcat server back to the client
+            res.send(body);
+          }
+        }
+      );
+    });
+
+    app.post('/accessPharmacist', (req, res) => {
+   
+      const data = req.body;
+      const jsonData = JSON.stringify(data);
+    
+        request.post(
+          {
+            url: 'http://localhost:8080/Ehospital/MedicalServlet',
+            form: jsonData,
+          },
+          (error, response, body) => {
+            if (error) {
+              // handle any errors
+              console.error(error);
+            } else {
+              // send the response from the Java Tomcat server back to the client
+              res.send(body);
+            }
+          }
+        );
+      });
+
+      app.post('/physicianAccess', (req, res) => {
+   
+        const data = req.body;
+        const jsonData = JSON.stringify(data);
+      
+          request.post(
+            {
+              url: 'http://localhost:8080/Ehospital/MedicalServlet',
+              form: jsonData,
+            },
+            (error, response, body) => {
+              if (error) {
+                // handle any errors
+                console.error(error);
+              } else {
+                // send the response from the Java Tomcat server back to the client
+                res.send(body);
+              }
+            }
+          );
+        });
   
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
